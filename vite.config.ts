@@ -16,6 +16,7 @@ import Shiki from '@shikijs/markdown-it'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 
 export default defineConfig({
   resolve: {
@@ -29,9 +30,14 @@ export default defineConfig({
       plugins: {
         vue: Vue({
           include: [/\.vue$/, /\.md$/],
+          template: {
+            transformAssetUrls,
+          },
         }),
       },
     }),
+
+    quasar(),
 
     // https://github.com/posva/unplugin-vue-router
     VueRouter({

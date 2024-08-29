@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// import { QBtn } from 'quasar';
+
 defineOptions({
   name: 'IndexPage',
 })
@@ -16,6 +18,20 @@ const { t } = useI18n()
 
 <template>
   <div>
+    <div>
+      <q-btn label="Click me" />
+    </div>
+    <div class="q-pa-md q-gutter-sm" style="height: 80px">
+      <q-avatar
+        v-for="n in 5"
+        :key="n"
+        size="40px"
+        class="overlapping"
+        :style="`left: ${n * 25}px`"
+      >
+        <img :src="`https://cdn.quasar.dev/img/avatar${n + 1}.jpg`">
+      </q-avatar>
+    </div>
     <div text-4xl>
       <div i-carbon-campsite inline-block />
     </div>
